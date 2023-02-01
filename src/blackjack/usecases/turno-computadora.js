@@ -1,4 +1,5 @@
-import { crearCartaHTML, pedirCarta, valorCarta } from "./";
+import { crearCartaHTML, pedirCarta, valorCarta} from "./";
+
 /**
  * Turno de la computadora
  * @param {Number} puntosMinimos puntos minimos que la computadora necesita para ganar
@@ -8,10 +9,11 @@ import { crearCartaHTML, pedirCarta, valorCarta } from "./";
  */
 export const turnoComputadora = (puntosMinimos, puntosHTML, divCartasComputadora, deck = []) => {
 
-    if(!puntosMinimos) throw new Error('Puntos minimos son necesarios');
-    if(!puntosHTML) throw new Error('Argumento puntosHTML es necesarios');
+    if (!puntosMinimos) throw new Error('Puntos minimos son necesarios');
+    if (!puntosHTML) throw new Error('Argumento puntosHTML es necesarios');
 
-    let puntosComputadora = 0; 
+    let puntosComputadora = 0;
+
 
     do {
         const carta = pedirCarta(deck);
@@ -19,7 +21,7 @@ export const turnoComputadora = (puntosMinimos, puntosHTML, divCartasComputadora
         puntosComputadora = puntosComputadora + valorCarta(carta);
         puntosHTML.innerText = puntosComputadora;
 
-      const imgCarta = crearCartaHTML(carta)
+        const imgCarta = crearCartaHTML(carta)
         divCartasComputadora.append(imgCarta);
 
         if (puntosMinimos > 21) {
@@ -30,13 +32,13 @@ export const turnoComputadora = (puntosMinimos, puntosHTML, divCartasComputadora
 
     setTimeout(() => {
         if (puntosComputadora === puntosMinimos) {
-           alert( 'Nadie gana :(');
+            confirm('Nadie gana :(');
         } else if (puntosMinimos > 21) {
-           alert('Computadora gana')
+            confirm('Computadora gana')
         } else if (puntosComputadora > 21) {
-           alert('Jugador Gana');
+            confirm('Jugador Gana');
         } else {
-           alert('Computadora Gana')
+            confirm('Computadora Gana')
         }
 
     }, 100);
