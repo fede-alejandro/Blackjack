@@ -1,5 +1,5 @@
 import _ from 'underscore';
-import { crearDeck, pedirCarta, valorCarta, turnoComputadora, crearCartaHTML } from './usecases';
+import { crearDeck, pedirCarta, valorCarta, turnoComputadora, crearCartaHTML} from './usecases';
 
 /**
  * 2C = Two of Clubs
@@ -20,10 +20,12 @@ const btnPedir = document.querySelector('#btnPedir');
 const btnDetener = document.querySelector('#btnDetener');
 const btnNuevo = document.querySelector('#btnNuevo');
 
+const divMensajePartida = document.querySelector('#mensaje')
 const divCartasJugador = document.querySelector('#jugador-cartas');
 const divCartasComputadora = document.querySelector('#computadora-cartas');
 
 const puntosHTML = document.querySelectorAll('small');
+const mensajeHTML = document.querySelector('p');
 
 deck = crearDeck(tipos, especiales);
 
@@ -42,13 +44,13 @@ btnPedir.addEventListener('click', () => {
         console.warn('Lo siento mucho, perdiste');
         btnPedir.disabled = true;
         btnDetener.disabled = true;
-        turnoComputadora(puntosJugador, puntosHTML[1], divCartasComputadora, deck);
+        turnoComputadora(puntosJugador, puntosHTML[1], divCartasComputadora, deck, divMensajePartida);
 
     } else if (puntosJugador === 21) {
         console.warn('21, genial!');
         btnPedir.disabled = true;
         btnDetener.disabled = true;
-        turnoComputadora(puntosJugador, puntosHTML[1], divCartasComputadora, deck);
+        turnoComputadora(puntosJugador, puntosHTML[1], divCartasComputadora, deck, divMensajePartida);
     }
 
 });
@@ -57,7 +59,7 @@ btnDetener.addEventListener('click', () => {
     btnPedir.disabled = true;
     btnDetener.disabled = true;
 
-    turnoComputadora(puntosJugador, puntosHTML[1], divCartasComputadora, deck);
+    turnoComputadora(puntosJugador, puntosHTML[1], divCartasComputadora, deck, divMensajePartida);
 });
 
 btnNuevo.addEventListener('click', () => {
@@ -71,14 +73,17 @@ btnNuevo.addEventListener('click', () => {
 
     puntosHTML[0].innerText = 0;
     puntosHTML[1].innerText = 0;
-
+   
     divCartasComputadora.innerHTML = '';
     divCartasJugador.innerHTML = '';
-
+    divMensajePartida.innerHTML = '';
+    
+    
     btnPedir.disabled = false;
     btnDetener.disabled = false;
-
+    
 });
+
 
 
 

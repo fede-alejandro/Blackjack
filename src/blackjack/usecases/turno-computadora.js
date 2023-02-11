@@ -1,4 +1,4 @@
-import { crearCartaHTML, pedirCarta, valorCarta} from "./";
+import { crearCartaHTML, pedirCarta, valorCarta } from './';
 
 /**
  * Turno de la computadora
@@ -14,6 +14,27 @@ export const turnoComputadora = (puntosMinimos, puntosHTML, divCartasComputadora
 
     let puntosComputadora = 0;
 
+    // const modal = document.createElement('modal')
+    // modal.className = 'alert'
+    // const modal2 = document.createElement('modal')
+    // modal.className = 'alert'
+    // const modal3 = document.createElement('modal')
+    // modal.className = 'alert'
+
+    const p = document.createElement('p');
+    p.className = 'alert frase';
+    p.innerHTML = 'Nadie gana'
+    // modal.append(p)
+
+    const p2 = document.createElement('p');
+    p2.className = 'alert frase';
+    p2.innerHTML = 'Computadora gana'
+    // modal2.append(p2)
+
+    const p3 = document.createElement('p');
+    p3.className = 'alert frase';
+    p3.innerHTML = 'Jugador gana'
+    // modal3.append(p3)
 
     do {
         const carta = pedirCarta(deck);
@@ -32,14 +53,14 @@ export const turnoComputadora = (puntosMinimos, puntosHTML, divCartasComputadora
 
     setTimeout(() => {
         if (puntosComputadora === puntosMinimos) {
-            confirm('Nadie gana :(');
+            document.body.append(p)
         } else if (puntosMinimos > 21) {
-            confirm('Computadora gana')
+            document.body.append(p2)
         } else if (puntosComputadora > 21) {
-            confirm('Jugador Gana');
+            document.body.append(p3)
         } else {
-            confirm('Computadora Gana')
+            document.body.append(p2)
         }
-
     }, 100);
+
 }

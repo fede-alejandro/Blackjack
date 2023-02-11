@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     margin: 0;
     background-color: #107913;
     color: white
@@ -12,6 +13,29 @@ html, body {
     font-size: 25px;
 }
 
+.alert {
+    top: -100vh;
+    left: 0;
+    height: 100px;
+    width: 400px;
+    background-color: transparent;
+}
+
+.frase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 40%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    font-size: 2em;
+    color: red;
+}
+
 .carta {
     position: relative;
     width: 150px;
@@ -19,14 +43,8 @@ html, body {
     margin-left: -75px;
 }
 
- /* # -> hace referencia al id */
-#computadora-cartas, #jugador-cartas { 
+/* # -> hace referencia al id */
+#computadora-cartas,
+#jugador-cartas {
     height: 240px;
 }
-
-/* #message {
-    display: flex;
-    background-color: darkcyan;
-    color: white;
-} */
-
