@@ -19,13 +19,12 @@ let puntosJugador = 0,
 const btnPedir = document.querySelector('#btnPedir');
 const btnDetener = document.querySelector('#btnDetener');
 const btnNuevo = document.querySelector('#btnNuevo');
+const mensaje = document.querySelector('#mensaje')
 
-const divMensajePartida = document.querySelector('#mensaje')
 const divCartasJugador = document.querySelector('#jugador-cartas');
 const divCartasComputadora = document.querySelector('#computadora-cartas');
 
 const puntosHTML = document.querySelectorAll('small');
-const mensajeHTML = document.querySelector('p');
 
 deck = crearDeck(tipos, especiales);
 
@@ -44,13 +43,13 @@ btnPedir.addEventListener('click', () => {
         console.warn('Lo siento mucho, perdiste');
         btnPedir.disabled = true;
         btnDetener.disabled = true;
-        turnoComputadora(puntosJugador, puntosHTML[1], divCartasComputadora, deck, divMensajePartida);
+        turnoComputadora(puntosJugador, puntosHTML[1], divCartasComputadora, deck);
 
     } else if (puntosJugador === 21) {
         console.warn('21, genial!');
         btnPedir.disabled = true;
         btnDetener.disabled = true;
-        turnoComputadora(puntosJugador, puntosHTML[1], divCartasComputadora, deck, divMensajePartida);
+        turnoComputadora(puntosJugador, puntosHTML[1], divCartasComputadora, deck);
     }
 
 });
@@ -59,7 +58,7 @@ btnDetener.addEventListener('click', () => {
     btnPedir.disabled = true;
     btnDetener.disabled = true;
 
-    turnoComputadora(puntosJugador, puntosHTML[1], divCartasComputadora, deck, divMensajePartida);
+    turnoComputadora(puntosJugador, puntosHTML[1], divCartasComputadora, deck);
 });
 
 btnNuevo.addEventListener('click', () => {
@@ -73,12 +72,10 @@ btnNuevo.addEventListener('click', () => {
 
     puntosHTML[0].innerText = 0;
     puntosHTML[1].innerText = 0;
-   
+ 
     divCartasComputadora.innerHTML = '';
     divCartasJugador.innerHTML = '';
-    divMensajePartida.innerHTML = '';
-    
-    
+
     btnPedir.disabled = false;
     btnDetener.disabled = false;
     

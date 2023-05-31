@@ -14,27 +14,17 @@ export const turnoComputadora = (puntosMinimos, puntosHTML, divCartasComputadora
 
     let puntosComputadora = 0;
 
-    // const modal = document.createElement('modal')
-    // modal.className = 'alert'
-    // const modal2 = document.createElement('modal')
-    // modal.className = 'alert'
-    // const modal3 = document.createElement('modal')
-    // modal.className = 'alert'
-
     const p = document.createElement('p');
     p.className = 'alert frase';
     p.innerHTML = 'Nadie gana'
-    // modal.append(p)
 
     const p2 = document.createElement('p');
     p2.className = 'alert frase';
     p2.innerHTML = 'Computadora gana'
-    // modal2.append(p2)
 
     const p3 = document.createElement('p');
     p3.className = 'alert frase';
     p3.innerHTML = 'Jugador gana'
-    // modal3.append(p3)
 
     do {
         const carta = pedirCarta(deck);
@@ -64,3 +54,4 @@ export const turnoComputadora = (puntosMinimos, puntosHTML, divCartasComputadora
     }, 100);
 
 }
+
