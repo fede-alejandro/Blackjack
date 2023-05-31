@@ -13,28 +13,24 @@ body {
     font-size: 25px;
 }
 
-.alert {
-    display: none;
-    top: -100vh;
-    left: 0;
-    height: 100px;
-    width: 400px;
-    background-color: transparent;
-}
 
-.frase {
+#divMensaje {
+    text-align: center;
+	font-size: 1.2em;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 60%;
     height: 40%;
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 200px;
     right: 0;
-    margin: auto;
+    bottom: 0%;
+    left: 200px;
     font-size: 2em;
     color: red;
+    z-index: initial;
+
 }
 
 .carta {

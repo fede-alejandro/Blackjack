@@ -13,18 +13,7 @@ export const turnoComputadora = (puntosMinimos, puntosHTML, divCartasComputadora
     if (!puntosHTML) throw new Error('Argumento puntosHTML es necesarios');
 
     let puntosComputadora = 0;
-
-    const p = document.createElement('p');
-    p.className = 'alert frase';
-    p.innerHTML = 'Nadie gana'
-
-    const p2 = document.createElement('p');
-    p2.className = 'alert frase';
-    p2.innerHTML = 'Computadora gana'
-
-    const p3 = document.createElement('p');
-    p3.className = 'alert frase';
-    p3.innerHTML = 'Jugador gana'
+    let info = document.getElementById('divMensaje');
 
     do {
         const carta = pedirCarta(deck);
@@ -43,15 +32,16 @@ export const turnoComputadora = (puntosMinimos, puntosHTML, divCartasComputadora
 
     setTimeout(() => {
         if (puntosComputadora === puntosMinimos) {
-            document.body.append(p)
+            info.innerHTML += '<b>Nadie gana!!</b>'
         } else if (puntosMinimos > 21) {
-            document.body.append(p2)
+            info.innerHTML += '<b>Computadora gana!!</b>'
         } else if (puntosComputadora > 21) {
-            document.body.append(p3)
+            info.innerHTML += '<b>Jugador gana!!</b>'
         } else {
-            document.body.append(p2)
+            info.innerHTML += '<b>Computadora gana!!</b>'
         }
-    }, 100);
+    }, 1000);
+
 
 }
 

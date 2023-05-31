@@ -19,7 +19,7 @@ let puntosJugador = 0,
 const btnPedir = document.querySelector('#btnPedir');
 const btnDetener = document.querySelector('#btnDetener');
 const btnNuevo = document.querySelector('#btnNuevo');
-const mensaje = document.querySelector('#mensaje')
+const mensaje = document.querySelector('#divMensaje')
 
 const divCartasJugador = document.querySelector('#jugador-cartas');
 const divCartasComputadora = document.querySelector('#computadora-cartas');
@@ -75,12 +75,12 @@ btnNuevo.addEventListener('click', () => {
  
     divCartasComputadora.innerHTML = '';
     divCartasJugador.innerHTML = '';
+    mensaje.innerHTML = '';
 
     btnPedir.disabled = false;
     btnDetener.disabled = false;
     
 });
-
 
 
 
